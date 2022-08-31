@@ -12,14 +12,13 @@ var gameState=1
 
 function preload(){
   gunImg = loadImage("gun1.png")
- blastImg = loadImage("blast.gif")
   bulletImg = loadImage("bullet1.png")
   blueBubbleImg = loadImage("waterBubble.png")
   redBubbleImg = loadImage("redbubble.png")
   backBoardImg= loadImage("back.jpg")
 }
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 800);
 
   backBoard= createSprite(50, width/2, 100,height);
   backBoard.addImage(backBoardImg)
@@ -68,6 +67,17 @@ function draw() {
     if (redBubbleGroup.collide(backBoard)) {
       handleGameover(redBubbleGroup);
     }
+    /*if(blueBubbleGroup.(bulletGroup)){
+      handleBubbleCollision(blueBubbleGroup);
+    }*/
+
+    /*if(blueBubbleGroup.collide(bulletGroup)){
+      handleBubbleCollision();
+    }*/
+    
+    /*if(blueBubbleGroup.collide()){
+      handleBubbleCollision(blueBubbleGroup);
+    }*/
     
     if(blueBubbleGroup.collide(bulletGroup)){
       handleBubbleCollision(blueBubbleGroup);
@@ -114,10 +124,7 @@ function handleBubbleCollision(bubbleGroup){
        score=score+1;
     }
 
-   blast= Sprite(bullet.x+60, bullet.y, 50,50);
-  Image(blastImg)
-   blast.scale=0.3
- blast.life=20
+ 
     bulletGroup.destroyEach()
     bubbleGroup.destroyEach()
 }
@@ -126,6 +133,15 @@ function handleGameover(bubbleGroup){
   
     life=life-1;
     bubbleGroup.destroyEach();
+
+     /*life=life+1;
+    bubbleGroup.destroyEach();*/
+
+     /*life=life-1;
+    bubbleGroup.destroy();*/
+
+     /*life=life-1;
+    bubble.destroyEach();*/
     
 
     if (life === 0) {
